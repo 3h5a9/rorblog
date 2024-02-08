@@ -1,17 +1,11 @@
-<div id="<%= dom_id article %>" class="card card-body rounded-0 shadow-sm mb-1">
+<div id="<%= dom_id article %>" class="card card-body rounded-0 shadow-sm mb-5">
   <% if article.featured_image.attached? %>
     <%= image_tag article.featured_image %>
   <% end %>
   
-  <p>
-    <strong>Title:</strong>
-    <%= article.title %>
-  </p>
+  <h2 class="fs-4 fw-bold"><%= link_to article.title, article_path(article), class: 'text-decoration-none text-black' %></h2>
 
-  <p>
-    <strong>Content:</strong>
-    <%= article.content %>
-  </p>
+  <%= article.content %>
 
 
   <p>

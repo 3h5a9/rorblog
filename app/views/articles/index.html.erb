@@ -9,9 +9,6 @@
     <div id="articles">
       <% @articles.each do |article| %>
         <%= render article %>
-        <p>
-          <%= link_to "Show this article", article, class: 'btn btn-sm btn-success rounded-0' %>
-        </p>
       <% end %>
     </div>
   </div>

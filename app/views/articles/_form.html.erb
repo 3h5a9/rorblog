@@ -18,7 +18,7 @@
 
   <div class="mb-3">
     <%= form.label :content, class: 'form-label' %>
-    <%= form.text_area :content, class: 'form-control rounded-0 shadow-sm' %>
+    <%= form.rich_text_area :content, class: 'form-control rounded-0 shadow-sm' %>
   </div>
 
   <div class="mb-3">
@@ -27,8 +27,7 @@
   </div>
 
   <div>
-    <%= form.select(:category_id, Category.all.map{|cat| [cat.name, cat.id]} ) %>
-
+    <%= form.select(:category_id, Category.all.map{|cat| [cat.name, cat.id]}, {}, {class: 'form-select'} ) %>
   </div>
 
 
