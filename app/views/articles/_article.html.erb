@@ -9,4 +9,12 @@
     <%= article.content %>
   </p>
 
+
+  <p>
+    <strong>Category:</strong> <span class="badge bg-danger"><%= article.category.name %></span>
+  </p>
+  <p>
+    <strong>Published:</strong> <span class="badge bg-primary"><%= article.created_at.strftime("%b %d, %Y") %></span>
+  </p>
+
 </div>
