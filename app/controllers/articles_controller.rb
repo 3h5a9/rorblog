@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :set_article, only: %i[show edit update destroy]
+  before_action :required_article_user, only: %i[edit update destroy]
 
   # GET /articles or /articles.json
   def index
@@ -67,5 +68,14 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :content, :category_id, :featured_image)
+    end
+
+
+    def required_article_user
+      unless current_user.id == @article.user_id
+        respond_to do |format|
+          format.html { redirect_to articles_url, notice: "Sorry! You are not authorized to perform this action!" }
+        end
+      end
     end
 end
