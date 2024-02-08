@@ -15,11 +15,10 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav m-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="#" aria-current="page">Home
-            <span class="visually-hidden">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <%= link_to root_path, class: 'nav-link active' do  %>
+            Home
+            <span class="visually-hidden">(current)</span>
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to 'Categories', categories_path, class: 'nav-link' %>
