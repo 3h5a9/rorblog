@@ -1,7 +1,10 @@
-<div id="<%= dom_id category %>">
-  <p>
+<div id="<%= dom_id category %>" class="card card-body rounded-0 shadow-sm mb-1">
+  <span>
     <strong>Name:</strong>
     <%= category.name %>
-  </p>
+  </span>
 
+  <span>
+    Total Articles Under <%= category.name %> <span class="badge bg-primary"><%= category.articles.count %></span>
+  </span>
 </div>
