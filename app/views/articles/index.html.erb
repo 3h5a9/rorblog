@@ -28,6 +28,12 @@
                 <%= article.created_at.strftime("%b %d, %Y") %>
               </span>
             </div>
+            <div>
+              <strong>Published By:</strong> 
+              <span class="badge bg-primary">
+                <%= article.user.email %>
+              </span>
+            </div>
           </div>
 
         </div>
