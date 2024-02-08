@@ -13,7 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
-      <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+      <ul class="navbar-nav m-auto mt-2 mt-lg-0">
         <li class="nav-item">
           <a class="nav-link active" href="#" aria-current="page">Home
             <span class="visually-hidden">(current)</span></a>
@@ -24,29 +24,15 @@
         <li class="nav-item">
           <%= link_to 'Categories', categories_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="dropdownId"
-            data-bs-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            >Dropdown</a
-          >
-          <div
-            class="dropdown-menu"
-            aria-labelledby="dropdownId"
-          >
-            <a class="dropdown-item" href="#"
-              >Action 1</a
-            >
-            <a class="dropdown-item" href="#"
-              >Action 2</a
-            >
-          </div>
-        </li>
       </ul>
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: {turbo_method: :delete}, class: 'btn btn-sm btn-danger rounded-0' %>
+        <% else %>
+          <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-sm btn-primary rounded-0' %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-sm btn-success rounded-0' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </nav>
