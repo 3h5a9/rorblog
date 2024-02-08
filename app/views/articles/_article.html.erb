@@ -1,4 +1,8 @@
 <div id="<%= dom_id article %>" class="card card-body rounded-0 shadow-sm mb-1">
+  <% if article.featured_image.attached? %>
+    <%= image_tag article.featured_image %>
+  <% end %>
+  
   <p>
     <strong>Title:</strong>
     <%= article.title %>

@@ -21,6 +21,10 @@
     <%= form.text_area :content, class: 'form-control rounded-0 shadow-sm' %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label :featured_image, class: 'form-label' %>
+    <%= form.file_field :featured_image, class: 'form-control', type: 'file' %>
+  </div>
 
   <div>
     <%= form.select(:category_id, Category.all.map{|cat| [cat.name, cat.id]} ) %>
