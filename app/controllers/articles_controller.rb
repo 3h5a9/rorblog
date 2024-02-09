@@ -72,7 +72,7 @@ class ArticlesController < ApplicationController
 
 
     def required_article_user
-      unless current_user.id == @article.user_id
+      unless current_user.id == @article.user_id || current_user.role == 'admin'
         respond_to do |format|
           format.html { redirect_to articles_url, notice: "Sorry! You are not authorized to perform this action!" }
         end

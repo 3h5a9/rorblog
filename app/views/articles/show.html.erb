@@ -4,7 +4,7 @@
 
     <%= render @article %>
 
-    <% if current_user.id == @article.user_id %>
+    <% if current_user.id == @article.user_id || current_user.role == 'admin' %>
       <div class="mt-3 d-flex">
         <%= link_to "Edit this article", edit_article_path(@article), class: 'btn btn-sm btn-primary rounded-0 me-2' %>
 

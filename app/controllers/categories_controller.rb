@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_category, only: %i[ show edit update destroy ]
+  before_action :set_category, only: %i[show edit update destroy]
+  before_action :req_admin_user, except: %i[index show]
 
   # GET /categories or /categories.json
   def index
@@ -67,5 +68,14 @@ class CategoriesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def category_params
       params.require(:category).permit(:name)
+    end
+
+
+    def req_admin_user
+      unless current_user.role == 'admin'
+        respond_to do |format|
+          format.html { redirect_to articles_url, notice: "Sorry! You are not authorized to perform this action!" }
+        end
+      end
     end
 end

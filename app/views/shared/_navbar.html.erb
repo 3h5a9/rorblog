@@ -27,6 +27,7 @@
       <div>
         <% if user_signed_in? %>
           <span class="badge bg-primary me-2"><%= current_user.email %></span>
+          <span class="badge bg-primary me-2">Role: <%= current_user.role %></span>
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: {turbo_method: :delete}, class: 'btn btn-sm btn-danger rounded-0' %>
         <% else %>
           <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-sm btn-primary rounded-0' %>
