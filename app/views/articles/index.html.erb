@@ -8,31 +8,32 @@
     </div>
     <div id="articles">
       <% @articles.each do |article| %>
-        <div id="<%= dom_id article %>" class="card card-body rounded-0 shadow-sm mb-5">
+        <div id="<%= dom_id article %>" class="card shadow-sm mb-5">
           <% if article.featured_image.attached? %>
-            <%= image_tag article.featured_image %>
+            <%= image_tag article.featured_image.variant(:thumb) %>
           <% end %>
-          
-          <h2 class="fs-4 fw-bold"><%= link_to article.title, article_path(article), class: 'text-decoration-none text-black' %></h2>
+          <div class="card-body rounded-0">
+            <h2 class="fs-4 fw-bold"><%= link_to article.title, article_path(article), class: 'text-decoration-none text-black' %></h2>
 
-          <hr>
-          
-          <div class="d-flex justify-content-between">
-            <div>
-              <strong>Category:</strong> 
-              <span class="badge bg-danger"><%= article.category.name %></span>
-            </div>
-            <div>
-              <strong>Published:</strong> 
-              <span class="badge bg-primary">
-                <%= article.created_at.strftime("%b %d, %Y") %>
-              </span>
-            </div>
-            <div>
-              <strong>Published By:</strong> 
-              <span class="badge bg-primary">
-                <%= article.user.email %>
-              </span>
+            <hr>
+            
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>Category:</strong> 
+                <span class="badge bg-danger"><%= article.category.name %></span>
+              </div>
+              <div>
+                <strong>Published:</strong> 
+                <span class="badge bg-primary">
+                  <%= article.created_at.strftime("%b %d, %Y") %>
+                </span>
+              </div>
+              <div>
+                <strong>Published By:</strong> 
+                <span class="badge bg-primary">
+                  <%= article.user.email %>
+                </span>
+              </div>
             </div>
           </div>
 
