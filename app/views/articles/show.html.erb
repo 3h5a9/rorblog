@@ -15,5 +15,12 @@
         </div>
       <% end %>
     <% end %>
+
+    <div class="card card-body rounded-0 my-3">
+      <%= render 'comments/form', comment: @comment %>
+    </div>
+    <hr>
+
+    <%= render 'comments/comment', comment: @comment %>
   </div>
 </div>

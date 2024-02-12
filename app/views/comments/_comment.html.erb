@@ -1,0 +1,12 @@
+<% @article.comments.each do |comment| %>
+<div id="<%= dom_id comment %>" class="card card-body mb-3">
+    <%= comment.commentBody %>
+
+    <%= comment.user.email %>
+
+    <div>
+      <%= link_to 'Delet', [@article, comment], method: :delete, data: {turbo_method: :delete}, class: 'btn btn-sm btn-danger rounded-0 mt-3' %>
+    </div>
+
+</div>
+<% end %>

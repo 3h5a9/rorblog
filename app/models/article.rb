@@ -3,4 +3,5 @@ class Article < ApplicationRecord
   has_one_attached :featured_image
   has_rich_text :content
   belongs_to :user
+  has_many :comments, dependent: :destroy
 end
