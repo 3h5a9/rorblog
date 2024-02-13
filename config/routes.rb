@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :categories
   resources :articles do
+    resources :likes, only: [:create, :destroy]
     resources :comments
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

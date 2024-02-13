@@ -18,6 +18,19 @@
             <hr>
             
             <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <% if current_user && article.likes.find_by(user_id: current_user.id) %>
+                  <%= button_to article_like_path(article, article.likes.find_by(user_id: current_user.id)), method: :delete, class: 'btn btn-sm btn-warning rounded-0' do %>
+                    <i class="bi bi-hand-thumbs-down"></i>
+                  <% end %>
+                  <span class="btn btn-sm btn-success rounded-0"><%= article.likes.count %></span>
+                <% else %>
+                  <%= button_to article_likes_path(article), method: :post, class: 'btn btn-sm btn-primary rounded-0' do %>
+                    <i class="bi bi-hand-thumbs-up"></i>
+                  <% end %>
+                  <span class="btn btn-sm btn-success rounded-0"><%= article.likes.count %></span>
+                <% end %>
+              </div>
               <div>
                 <strong>Category:</strong> 
                 <span class="badge bg-danger"><%= article.category.name %></span>
