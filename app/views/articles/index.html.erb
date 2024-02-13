@@ -1,11 +1,5 @@
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <p style="color: green"><%= notice %></p>
-
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h1>Articles</h1>
-      <%= link_to "New article", new_article_path, class: 'btn btn-sm btn-success rounded-0' %>
-    </div>
     <div id="articles">
       <% @articles.each do |article| %>
         <div id="<%= dom_id article %>" class="card shadow-sm mb-5">
@@ -18,7 +12,7 @@
             <hr>
             
             <div class="d-flex justify-content-between">
-              <div class="d-flex">
+              <div class="d-flex fs-6">
                 <% if current_user && article.likes.find_by(user_id: current_user.id) %>
                   <%= button_to article_like_path(article, article.likes.find_by(user_id: current_user.id)), method: :delete, class: 'btn btn-sm btn-warning rounded-0' do %>
                     <i class="bi bi-hand-thumbs-down"></i>
@@ -32,18 +26,18 @@
                 <% end %>
               </div>
               <div>
-                <strong>Category:</strong> 
-                <span class="badge bg-danger"><%= article.category.name %></span>
+                <strong class="fs-6">Category:</strong> 
+                <span class="badge bg-danger rounded-0"><%= article.category.name %></span>
               </div>
               <div>
-                <strong>Published:</strong> 
-                <span class="badge bg-primary">
+                <strong class="fs-6">Published:</strong> 
+                <span class="badge bg-primary rounded-0">
                   <%= article.created_at.strftime("%b %d, %Y") %>
                 </span>
               </div>
               <div>
-                <strong>Published By:</strong> 
-                <span class="badge bg-primary">
+                <strong class="fs-6">Published By:</strong> 
+                <span class="badge bg-primary rounded-0">
                   <%= article.user.email %>
                 </span>
               </div>

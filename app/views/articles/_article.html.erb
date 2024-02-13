@@ -7,16 +7,16 @@
     <h2 class="fs-4 fw-bold"><%= article.title %></h2>
     <div class="mb-3 d-flex justify-content-between">
       <div>
-        <span class="badge bg-danger"><%= article.category.name %></span>
+        <span class="badge bg-danger rounded-0"><%= article.category.name %></span>
       </div>
       <div>
-        <span class="badge bg-primary"><%= time_ago_in_words(article.created_at) %> ago</span>
+        <span class="badge bg-primary rounded-0"><%= time_ago_in_words(article.created_at) %> ago</span>
       </div>
       <div>
-        <strong>By:</strong> <span class="badge bg-primary"><%= article.user.email %></span>
+        <span class="badge bg-primary rounded-0"><%= article.user.email %></span>
       </div>
       <div>
-        <strong></strong> <span class="badge bg-primary"><%= article.comments.count %></span>
+        <span class="badge bg-primary rounded-0"><%= article.comments.count %></span>
       </div>
     </div>
 

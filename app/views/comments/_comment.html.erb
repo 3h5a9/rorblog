@@ -4,9 +4,11 @@
 
     <%= comment.user.email %>
 
-    <div>
-      <%= link_to 'Delet', [@article, comment], method: :delete, data: {turbo_method: :delete}, class: 'btn btn-sm btn-danger rounded-0 mt-3' %>
-    </div>
+    <% if user_signed_in? && comment.user_id == current_user.id %>
+      <div>
+        <%= link_to 'Delet', [@article, comment], method: :delete, data: {turbo_method: :delete}, class: 'btn btn-sm btn-danger rounded-0 mt-3' %>
+      </div>
+    <% end %>
 
 </div>
 <% end %>
