@@ -14,12 +14,12 @@ Generic Styling
 ----------------------------------------
 */ 
 body{
-  font-family: "Cabin", sans-serif;
+  font-family: "Lora", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings: "wdth" 100;
   background-color: $body_bg;
+  font-size: 1.15rem;
 }
 
 
@@ -42,6 +42,13 @@ Font Styling
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+}
+
+.lora-regular {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 
