@@ -1,18 +1,25 @@
-<div id="<%= dom_id article %>" class="card card-body rounded-0 shadow-sm mb-5">
+<div id="<%= dom_id article %>" class="card rounded-0 shadow-sm mb-5">
   <% if article.featured_image.attached? %>
     <%= image_tag article.featured_image %>
   <% end %>
+  <div class="card-body">
   
-  <h2 class="fs-4 fw-bold"><%= link_to article.title, article_path(article), class: 'text-decoration-none text-black' %></h2>
+    <h2 class="fs-4 fw-bold"><%= article.title %></h2>
+    <div class="mb-3 d-flex justify-content-between">
+      <div>
+        <span class="badge bg-danger"><%= article.category.name %></span>
+      </div>
+      <div>
+        <span class="badge bg-primary"><%= time_ago_in_words(article.created_at) %> ago</span>
+      </div>
+      <div>
+        <strong>By:</strong> <span class="badge bg-primary"><%= article.user.email %></span>
+      </div>
+      <div>
+        <strong></strong> <span class="badge bg-primary"><%= article.comments.count %></span>
+      </div>
+    </div>
 
-  <%= article.content %>
-
-
-  <p>
-    <strong>Category:</strong> <span class="badge bg-danger"><%= article.category.name %></span>
-  </p>
-  <p>
-    <strong>Published:</strong> <span class="badge bg-primary"><%= article.created_at.strftime("%b %d, %Y") %></span>
-  </p>
-
+    <%= article.content %>
+  </div>
 </div>
